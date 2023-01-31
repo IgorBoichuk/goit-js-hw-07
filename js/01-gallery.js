@@ -31,14 +31,15 @@ const onPictureClick = (event) => {
   }
 
   const lightBox = basicLightbox.create(`
-    <img src=${event.target.dataset.source} width="800" height="600">
-    `);
+  <img src=${event.target.dataset.source} width="800" height="600">
+  `);
   lightBox.show();
 
   const onEscapeClose = (e) => {
     const visible = document.querySelector(".basicLightbox--visible");
     if (visible && e.key === "Escape") {
       lightBox.close();
+      document.removeEventListener("keydown", onEscapeClose);
     }
   };
   document.addEventListener("keydown", onEscapeClose);

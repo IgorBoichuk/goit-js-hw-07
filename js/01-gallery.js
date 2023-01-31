@@ -2,7 +2,6 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const myGallery = document.querySelector(".gallery");
-myGallery.addEventListener("click", onPictureClick);
 
 function greateMyGallery() {
   for (const item of galleryItems) {
@@ -40,7 +39,7 @@ function greateMyGallery() {
 }
 greateMyGallery();
 
-function onPictureClick(event) {
+const onPictureClick = (event) => {
   event.preventDefault();
 
   if (event.target.nodeName !== "IMG") {
@@ -51,12 +50,13 @@ function onPictureClick(event) {
     <img src=${event.target.dataset.source} width="800" height="600">
     `);
   lightBox.show();
-  document.addEventListener("keydown", onEscapeClose);
 
-  function onEscapeClose(e) {
+  const onEscapeClose = (e) => {
     const visible = document.querySelector(".basicLightbox--visible");
     if (visible && e.key === "Escape") {
       lightBox.close();
     }
-  }
-}
+  };
+  document.addEventListener("keydown", onEscapeClose);
+};
+myGallery.addEventListener("click", onPictureClick);

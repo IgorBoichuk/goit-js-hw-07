@@ -16,30 +16,8 @@ const greateMyGallery = () => {
 };
 greateMyGallery();
 
-// const onPictureClick = (event) => {
-//   event.preventDefault();
-
-//   if (event.target.nodeName !== "IMG") {
-//     return;
-//   }
-
-//   const lightBox = basicLightbox.create(`
-//       <img src=${event.target.dataset.source} width="800" height="600">
-//       `);
-//   lightBox.show();
-
-//   document.addEventListener("keydown", onEscapeClose);
-
-//   function onEscapeClose(e) {
-//     const visible = document.querySelector(".basicLightbox--visible");
-//     if (visible && e.key === "Escape") {
-//       lightBox.close();
-//     }
-//   }
-// };
-// myGallery.addEventListener("click", onPictureClick);
-
-let gallery = new SimpleLightbox(".gallery a");
-gallery.on("show.simplelightbox", function () {
-  // do something…
+let gallery = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+  captionPosition: "bottom",
 });

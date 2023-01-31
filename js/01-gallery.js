@@ -5,22 +5,6 @@ const myGallery = document.querySelector(".gallery");
 
 function greateMyGallery() {
   for (const item of galleryItems) {
-    // const createDiv = document.createElement("div");
-    // createDiv.classList = "gallery__item";
-
-    // const createLink = document.createElement("a");
-    // createLink.classList = "gallery__link";
-    // createLink.setAttribute("href", item.preview);
-
-    // const createImg = document.createElement("img");
-    // createImg.classList = "gallery__image";
-    // createImg.setAttribute("src", item.preview);
-    // createImg.setAttribute("alt", item.description);
-
-    // createDiv.append(createLink);
-    // createLink.append(createImg);
-    // myGallery.append(createDiv);
-
     let imgArray = [];
     const createItem = `<div class="gallery__item">
         <a class="gallery__link" href="${item.original}">
